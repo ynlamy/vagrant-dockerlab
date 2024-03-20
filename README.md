@@ -12,7 +12,7 @@ The timezone can be defined through the ``Vagrantfile``.
 
 ### Usage
 
-- ``cd vagrant-lamp``
+- ``cd vagrant-dockerlab``
 - Edit ``Vagrantfile`` to customize settings :
 
 ```
