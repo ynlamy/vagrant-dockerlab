@@ -42,7 +42,7 @@ This LAMP environment must be started using Vagrant.
     default:
     default: Docker Lab is ready !
     default: - Docker CE version : 25.0.4
-    default: - Docker Composer version : 2.24.7
+    default: - Docker Compose version : 2.24.7
     default: - Lazydocker version : 0.23.1
     default:
     default: Informations :
