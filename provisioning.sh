@@ -102,7 +102,7 @@ rm -f docker-registry-config.yml
 
 echo -e "\nDocker Lab is ready !"
 echo "- Docker CE version :" `dnf info docker-ce | grep -i "Version" | awk '{ print $3 }'`
-echo "- Docker Composer version :" `dnf info docker-compose-plugin | grep -i "Version" | awk '{ print $3 }'`
+echo "- Docker Compose version :" `dnf info docker-compose-plugin | grep -i "Version" | awk '{ print $3 }'`
 echo "- Lazydocker version :" `/usr/local/bin/lazydocker --version | grep -i "Version" |  awk '{ print $2 }'`
 echo -e "\nInformations :"
 echo "- Guest IP address :" `ip address show eth0 | grep 'inet ' | sed -e 's/^.*inet //' -e 's/\/.*$//'`
