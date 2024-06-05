@@ -27,7 +27,7 @@ LAZYDOCKER_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://git
 LAZYDOCKER_FILENAME="lazydocker_${LAZYDOCKER_LATEST_VERSION//v/}_Linux_x86_64.tar.gz"
 LAZYDOCKER_URL="https://github.com/jesseduffield/lazydocker/releases/download/${LAZYDOCKER_LATEST_VERSION}/${LAZYDOCKER_FILENAME}"
 curl -L -s -o lazydocker.tar.gz $LAZYDOCKER_URL &>/dev/null
-tar -xzvf lazydocker.tar.gz lazydocker &>/dev/null
+tar -xzf lazydocker.tar.gz lazydocker
 install -Dm 755 lazydocker -t "/usr/local/bin"
 rm -f lazydocker lazydocker.tar.gz
 
