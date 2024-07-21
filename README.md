@@ -7,6 +7,8 @@ This Docker CE environment is based on a [Rocky Linux 9](https://rockylinux.org/
 * [Lazydocker](https://github.com/jesseduffield/lazydocker) is a terminal UI for both docker and docker-compose
 * [Docker Registry](https://hub.docker.com/_/registry) is a private docker registry
 * [Docker Registry UI](https://github.com/Joxit/docker-registry-ui) is a user interface for your private docker registry
+* [Hadolint](https://github.com/hadolint/hadolint) is a Dockerfile linter that helps you build best practice Docker images
+* [Trivy](https://github.com/aquasecurity/trivy) is a security scanner
 
 The timezone can be defined through the ``Vagrantfile``.
 
@@ -41,9 +43,11 @@ This LAMP environment must be started using Vagrant.
     default: Installing Docker Registry...
     default:
     default: Docker Lab is ready !
-    default: - Docker CE version : 25.0.4
-    default: - Docker Compose version : 2.24.7
-    default: - Lazydocker version : 0.23.1
+    default: - Docker CE version : 27.0.3
+    default: - Docker Compose version : 2.28.1
+    default: - Lazydocker version : 0.23.3
+    default: - Hadolint version : 2.12.0
+    default: - Trivy version : 0.53.0
     default:
     default: Informations :
     default: - Guest IP address : xxx.xxx.xxx.xxx

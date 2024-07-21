@@ -31,6 +31,19 @@ tar -xzf lazydocker.tar.gz lazydocker
 install -Dm 755 lazydocker -t "/usr/local/bin"
 rm -f lazydocker lazydocker.tar.gz
 
+echo "Installing Hadolint..."
+HADOLINT_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.com/hadolint/hadolint/releases/latest | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+HADOLINT_URL="https://github.com/hadolint/hadolint/releases/download/${HADOLINT_LATEST_VERSION}/hadolint-Linux-x86_64"
+curl -L -s -o hadolint $HADOLINT_URL &>/dev/null
+mv hadolint /usr/local/bin/
+chmod +x /usr/local/bin/hadolint
+
+echo "Installing Trivy..."
+TRIVY_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.com/aquasecurity/trivy/releases/latest | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+TRIVY_FILENAME="trivy_${TRIVY_LATEST_VERSION//v/}_Linux-64bit.rpm"
+TRIVY_URL="https://github.com/aquasecurity/trivy/releases/download/${TRIVY_LATEST_VERSION}/${TRIVY_FILENAME}"
+dnf -y -q install $TRIVY_URL &>/dev/null
+
 echo "Configuring Docker CE..."
 usermod -aG docker vagrant
 echo "{
@@ -103,7 +116,9 @@ rm -f docker-registry-config.yml
 echo -e "\nDocker Lab is ready !"
 echo "- Docker CE version :" `dnf info docker-ce | grep -i "Version" | awk '{ print $3 }'`
 echo "- Docker Compose version :" `dnf info docker-compose-plugin | grep -i "Version" | awk '{ print $3 }'`
-echo "- Lazydocker version :" `/usr/local/bin/lazydocker --version | grep -i "Version" |  awk '{ print $2 }'`
+echo "- Lazydocker version :" `/usr/local/bin/lazydocker --version | grep -i "Version" | awk '{ print $2 }'`
+echo "- Hadolint version :" `/usr/local/bin/hadolint --version | awk '{ print $4 }'`
+echo "- Trivy version :" `dnf info trivy | grep -i "Version" | awk '{ print $3 }'`
 echo -e "\nInformations :"
 echo "- Guest IP address :" `ip address show eth0 | grep 'inet ' | sed -e 's/^.*inet //' -e 's/\/.*$//'`
 echo "- Docker Registry UI URL : http://127.0.0.1:8080/"
