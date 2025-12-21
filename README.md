@@ -22,7 +22,12 @@ The timezone can be defined through the ``Vagrantfile``.
   ...
   # Provisioning script
   config.vm.provision "shell", path: "provisioning.sh", env: {
-    "TIMEZONE" => "Europe/Paris" # Timezone to be used by the system
+    "TIMEZONE" => "Europe/Paris", # Timezone to be used by the system
+    "DOCKER_REGISTRY_UI_INSTALL" => "true", # Install Docker Registry UI or not
+    "DIVE_INSTALL" => "true", # Install Dive or not
+    "HADOLINT_INSTALL" => "true", # Install Hadolint or not
+    "LAZYDOCKER_INSTALL" => "true", # Install Lazydocker or not
+    "TRIVY_INSTALL" => "true" # Install Trivy or not
   }
   ...
 ```
@@ -44,15 +49,15 @@ This LAMP environment must be started using Vagrant.
     default: Installing Trivy...
     default: Configuring Docker CE...
     default: Starting Docker CE...
-    default: Installing Docker Registry...
+    default: Installing Docker Registry UI...
     default:
     default: Docker Lab is ready !
-    default: - Docker CE version : 27.0.5
-    default: - Docker Compose version : 2.32.4
-    default: - Dive version : 0.12.0
-    default: - Hadolint version : 2.12.0
-    default: - Lazydocker version : 0.24.1
-    default: - Trivy version : 0.58.2
+    default: - Docker CE version : 29.1.3
+    default: - Docker Compose version : 5.0.0
+    default: - Dive version : 0.13.1
+    default: - Hadolint version : 2.14.0
+    default: - Lazydocker version : 0.24.3
+    default: - Trivy version : 0.68.2
     default:
     default: Informations :
     default: - Guest IP address : xxx.xxx.xxx.xxx

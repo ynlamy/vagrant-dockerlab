@@ -43,6 +43,11 @@ Vagrant.configure("2") do |config|
 
   # Provisioning script
   config.vm.provision "shell", path: "provisioning.sh", env: {
-    "TIMEZONE" => "Europe/Paris" # Timezone to be used by the system
+    "TIMEZONE" => "Europe/Paris", # Timezone to be used by the system
+    "DOCKER_REGISTRY_UI_INSTALL" => "true", # Install Docker Registry UI or not
+    "DIVE_INSTALL" => "true", # Install Dive or not
+    "HADOLINT_INSTALL" => "true", # Install Hadolint or not
+    "LAZYDOCKER_INSTALL" => "true", # Install Lazydocker or not
+    "TRIVY_INSTALL" => "true" # Install Trivy or not
   }
 end
