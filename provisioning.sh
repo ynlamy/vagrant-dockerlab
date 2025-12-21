@@ -133,10 +133,10 @@ if [ "$DOCKER_REGISTRY_UI_INSTALL" = true ]; then
 fi
 
 echo -e "\nDocker Lab is ready !"
-echo "- Docker CE version :" `dnf info docker-ce | grep -i "Version" | awk '{ print $3 }'`
-echo "- Docker Compose version :" `dnf info docker-compose-plugin | grep -i "Version" | awk '{ print $3 }'`
+echo "- Docker CE version :" `dnf info --installed docker-ce | grep -i "Version" | awk '{ print $3 }'`
+echo "- Docker Compose version :" `dnf info --installed docker-compose-plugin | grep -i "Version" | awk '{ print $3 }'`
 if [ "$DIVE_INSTALL" = true ]; then
-  echo "- Dive version :" `dnf info dive | grep -i "Version" | awk '{ print $3 }'`
+  echo "- Dive version :" `dnf info --installed dive | grep -i "Version" | awk '{ print $3 }'`
 fi
 if [ "$HADOLINT_INSTALL" = true ]; then
   echo "- Hadolint version :" `/usr/local/bin/hadolint --version | awk '{ print $4 }'`
@@ -145,7 +145,7 @@ if [ "$LAZYDOCKER_INSTALL" = true ]; then
   echo "- Lazydocker version :" `/usr/local/bin/lazydocker --version | grep -i "Version" | awk '{ print $2 }'`
 fi
 if [ "$TRIVY_INSTALL" = true ]; then
-  echo "- Trivy version :" `dnf info trivy | grep -i "Version" | awk '{ print $3 }'`
+  echo "- Trivy version :" `dnf info --installed trivy | grep -i "Version" | awk '{ print $3 }'`
 fi
 echo -e "\nInformations :"
 echo "- Guest IP address :" `ip address show eth0 | grep 'inet ' | sed -e 's/^.*inet //' -e 's/\/.*$//'`
