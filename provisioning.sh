@@ -9,6 +9,11 @@ echo "Disbaling SELinux..."
 setenforce 0
 sed -i 's/SELINUX=\(enforcing\|permissive\)/SELINUX=disabled/' /etc/selinux/config
 
+if [ "$(firewall-cmd --state)" = "running" ]; then
+  echo "Disabling firewalld..."
+  systemctl disable --now firewalld
+fi
+
 if [ -n "$TIMEZONE" ]; then
   echo "Configuring Timezone..."
   timedatectl set-timezone $TIMEZONE
