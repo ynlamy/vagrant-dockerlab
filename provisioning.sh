@@ -11,7 +11,7 @@ sed -i 's/SELINUX=\(enforcing\|permissive\)/SELINUX=disabled/' /etc/selinux/conf
 
 if [ "$(firewall-cmd --state)" = "running" ]; then
   echo "Disabling firewalld..."
-  systemctl disable --now firewalld
+  systemctl disable --now firewalld &>/dev/null
 fi
 
 if [ -n "$TIMEZONE" ]; then
