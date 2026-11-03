@@ -32,7 +32,7 @@ The timezone can be defined through the ``Vagrantfile``.
   ...
 ```
 
-This LAMP environment must be started using Vagrant.
+This Docker CE development environment must be started using Vagrant.
 
 - ``vagrant up``
 
@@ -53,12 +53,12 @@ This LAMP environment must be started using Vagrant.
     default: Installing Docker Registry UI...
     default:
     default: Docker Lab is ready !
-    default: - Docker CE version : 29.8.2
-    default: - Docker Compose version : 5.6.0
+    default: - Docker CE version : 29.9.2
+    default: - Docker Compose version : 5.7.0
     default: - Dive version : 0.13.1
     default: - Hadolint version : 2.15.1
     default: - Lazydocker version : 0.25.2
-    default: - Trivy version : 0.75.0
+    default: - Trivy version : 0.76.1
     default:
     default: Informations :
     default: - Guest IP address : xxx.xxx.xxx.xxx
